@@ -8,8 +8,8 @@ const EXPERIENCE_SECTION_INDEX = SECTIONS.findIndex((section) => section.id === 
 export function Experience() {
   return (
     <div className={styles.root}>
-      <div className={styles.eyebrow}>06 — EXPERIENCE</div>
-      <h2 className={styles.heading}>Where I've worked.</h2>
+      <div className={styles.eyebrow}>06 — EXPERIENCE & EDUCATION</div>
+      <h2 className={styles.heading}>Where I've grown.</h2>
       <div className={styles.timeline}>
         <div className={styles.line} />
         <div className={styles.markers}>
