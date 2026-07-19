@@ -18,6 +18,9 @@ function FutureLabel({ entry, className }: { entry: ExperienceEntry; className: 
   return (
     <div className={className}>
       <div className={styles.futureRole}>{entry.role}</div>
+      {/* Mirrors RoleCompany's two-line structure so this marker's dot lands
+          at the same vertical center as the real, two-line entries. */}
+      <div className={styles.futureSubtitle}>{entry.company}</div>
     </div>
   );
 }
