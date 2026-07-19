@@ -1,0 +1,61 @@
+.root {
+  display: flex;
+  height: 100%;
+  gap: 80px;
+  align-items: center;
+}
+
+.bioColumn {
+  flex: 0 0 40%;
+}
+
+.eyebrow {
+  font-size: var(--kq-text-eyebrow);
+  letter-spacing: 0.24em;
+  color: var(--kq-label);
+  margin-bottom: 18px;
+}
+
+.heading {
+  margin: 0 0 26px;
+  font-family: var(--kq-font-heading);
+  font-weight: 600;
+  font-size: var(--kq-text-h2);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.paragraph {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--kq-body-strong);
+  max-width: 420px;
+  margin: 14px 0 0;
+}
+
+.paragraph:first-of-type {
+  margin-top: 0;
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+
+.tag {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  background: #fff;
+  border: 1px solid var(--kq-border-strong);
+  padding: 8px 14px;
+  border-radius: var(--kq-radius-pill);
+  color: var(--kq-body);
+}
+
+.collage {
+  flex: 1;
+  position: relative;
+  height: 420px;
+}
