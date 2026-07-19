@@ -10,6 +10,7 @@ import { SectionShell } from '@/components/layout/SectionShell';
 import { Hero } from '@/components/sections/Hero/Hero';
 import { FloatingShapes } from '@/components/sections/Hero/FloatingShapes';
 import { About } from '@/components/sections/About/About';
+import { Skills } from '@/components/sections/Skills/Skills';
 import { SECTIONS, type SectionMeta } from '@/data/sections';
 import styles from './Portfolio.module.css';
 
@@ -32,6 +33,8 @@ function renderSectionContent(section: SectionMeta, index: number): ReactNode {
       return <Hero />;
     case 'about':
       return <About />;
+    case 'skills':
+      return <Skills />;
     default:
       return <SectionPlaceholder index={index} label={section.navLabel} />;
   }
