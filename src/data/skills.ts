@@ -1,4 +1,4 @@
-export type PaletteColor = 'violet' | 'amber' | 'green' | 'coral';
+import type { PaletteColor } from '@/data/palette';
 
 export interface Skill {
   name: string;
