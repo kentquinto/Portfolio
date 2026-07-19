@@ -1,5 +1,5 @@
 export const ABOUT_BIO_PARAGRAPHS: readonly string[] = [
-  "Hi, I'm Kent — a full-stack developer who spent years in hospitality before switching to code. I build with PHP, Laravel, React, and MySQL, bringing the same customer-focused, detail-obsessed mindset from hotels and restaurants to software.",
+  "Hey there! 👋 I'm Kent! A full-stack developer who spent years in hospitality before switching to code. I build with PHP, Laravel, React, and MySQL, bringing the same customer-focused, detail-obsessed mindset from hotels and restaurants to software.",
   'Currently sharpening my craft at IT Academy Barcelona while shipping full projects end to end — from REST APIs to production deploys.',
 ];
 
