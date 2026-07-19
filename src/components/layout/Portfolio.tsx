@@ -1,11 +1,15 @@
+import type { ReactNode } from 'react';
 import { ThemeProvider } from '@/context/ThemeProvider';
+import { PointerProvider } from '@/context/PointerProvider';
 import { ScrollProvider } from '@/context/ScrollProvider';
 import { ScrollContainer } from '@/components/layout/ScrollContainer';
 import { ProgressBar } from '@/components/layout/ProgressBar';
 import { NavRail } from '@/components/layout/NavRail';
 import { TopActions } from '@/components/layout/TopActions';
 import { SectionShell } from '@/components/layout/SectionShell';
-import { SECTIONS } from '@/data/sections';
+import { Hero } from '@/components/sections/Hero/Hero';
+import { FloatingShapes } from '@/components/sections/Hero/FloatingShapes';
+import { SECTIONS, type SectionMeta } from '@/data/sections';
 import styles from './Portfolio.module.css';
 
 /**
@@ -21,23 +25,48 @@ function SectionPlaceholder({ index, label }: { index: number; label: string }) 
   );
 }
 
+function renderSectionContent(section: SectionMeta, index: number): ReactNode {
+  switch (section.id) {
+    case 'hero':
+      return <Hero />;
+    default:
+      return <SectionPlaceholder index={index} label={section.navLabel} />;
+  }
+}
+
+function renderSectionDecoration(section: SectionMeta): ReactNode {
+  switch (section.id) {
+    case 'hero':
+      return <FloatingShapes />;
+    default:
+      return undefined;
+  }
+}
+
 export function Portfolio() {
   return (
     <ThemeProvider>
-      <ScrollProvider>
-        <div className={styles.root}>
-          <ProgressBar />
-          <NavRail />
-          <TopActions />
-          <ScrollContainer>
-            {SECTIONS.map((section, index) => (
-              <SectionShell key={section.id} index={index} label={section.navLabel}>
-                <SectionPlaceholder index={index} label={section.navLabel} />
-              </SectionShell>
-            ))}
-          </ScrollContainer>
-        </div>
-      </ScrollProvider>
+      <PointerProvider>
+        <ScrollProvider>
+          <div className={styles.root}>
+            <ProgressBar />
+            <NavRail />
+            <TopActions />
+            <ScrollContainer>
+              {SECTIONS.map((section, index) => (
+                <SectionShell
+                  key={section.id}
+                  index={index}
+                  label={section.navLabel}
+                  decoration={renderSectionDecoration(section)}
+                >
+                  {renderSectionContent(section, index)}
+                </SectionShell>
+              ))}
+            </ScrollContainer>
+          </div>
+        </ScrollProvider>
+      </PointerProvider>
     </ThemeProvider>
   );
 }

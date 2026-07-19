@@ -1,0 +1,48 @@
+.layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.circleWrapper {
+  position: absolute;
+  top: 14%;
+  right: 9%;
+}
+
+.squareWrapper {
+  position: absolute;
+  top: 44%;
+  right: 6%;
+}
+
+.ringWrapper {
+  position: absolute;
+  bottom: 24%;
+  right: 22%;
+}
+
+.circle {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 30%, #b9a6ff, #7d6bf0);
+  animation: floaty 7s ease-in-out infinite;
+}
+
+.square {
+  width: 56px;
+  height: 56px;
+  background: var(--kq-accent-amber);
+  border-radius: 14px;
+  --rot: 14deg;
+  animation: floaty-slow 6s ease-in-out infinite;
+}
+
+.ring {
+  width: 34px;
+  height: 34px;
+  border: 2px solid var(--kq-accent-green);
+  border-radius: 50%;
+  animation: floaty 5.5s ease-in-out infinite;
+}
