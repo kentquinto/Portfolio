@@ -1,0 +1,42 @@
+.marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.circle {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--step-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--kq-font-heading);
+  font-weight: 600;
+  color: var(--step-color);
+}
+
+.violet {
+  --step-color: var(--kq-palette-violet);
+}
+
+.amber {
+  --step-color: var(--kq-accent-amber);
+}
+
+.green {
+  --step-color: var(--kq-accent-green);
+}
+
+.coral {
+  --step-color: var(--kq-accent-coral);
+}
+
+.label {
+  font-family: var(--kq-font-heading);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
