@@ -23,8 +23,8 @@ export const EXPERIENCE_TIMELINE: readonly ExperienceEntry[] = [
     years: 'Feb 2026 — Present',
   },
   {
-    role: 'Your company? 🙂',
-    company: '',
+    role: 'Your company, maybe? →',
+    company: "Let's talk.",
     years: 'Open',
     isFuture: true,
   },

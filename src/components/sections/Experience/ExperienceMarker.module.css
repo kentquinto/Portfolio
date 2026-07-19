@@ -4,28 +4,45 @@
   align-items: center;
 }
 
-.labelAbove {
+.labelAbove,
+.labelBelow {
   text-align: center;
-  margin-bottom: 16px;
   max-width: 170px;
+  /* Reserves space for a 2-line role + 2-line company/subtitle (both "Full-
+     Stack Web Development" and "Multiple Hotels & Restaurants, Barcelona"
+     wrap to 2 lines) so every marker's label block is the same height
+     regardless of how much its own text wraps — otherwise flexbox centers
+     each variable-height column independently and dots drift out of
+     alignment with each other. */
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.labelAbove {
+  margin-bottom: 16px;
 }
 
 .labelBelow {
-  text-align: center;
   margin-top: 16px;
-  max-width: 170px;
 }
 
 .role {
   font-family: var(--kq-font-heading);
   font-weight: 600;
   font-size: 16px;
+  /* Fixed px line-height (not a relative multiplier) so this stays exactly
+     equal to .futureRole's line box despite the different font-size —
+     that equality is what keeps every marker's dot vertically aligned. */
+  line-height: 21px;
 }
 
 .company {
   font-size: 13px;
   color: var(--kq-body);
   margin-top: 2px;
+  line-height: 17px;
 }
 
 .dot {
@@ -45,7 +62,15 @@
   font-style: italic;
   font-weight: 400;
   font-size: 18px;
+  line-height: 21px;
   color: var(--kq-accent);
+}
+
+.futureSubtitle {
+  font-size: 13px;
+  color: var(--kq-body);
+  margin-top: 2px;
+  line-height: 17px;
 }
 
 .years {
