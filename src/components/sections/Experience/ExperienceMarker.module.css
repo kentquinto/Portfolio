@@ -35,6 +35,19 @@
   background: var(--kq-ink);
 }
 
+.dotFuture {
+  background: none;
+  border: 2px dashed var(--kq-accent);
+}
+
+.futureRole {
+  font-family: var(--kq-font-accent);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--kq-accent);
+}
+
 .years {
   font-size: 12px;
   letter-spacing: 0.06em;

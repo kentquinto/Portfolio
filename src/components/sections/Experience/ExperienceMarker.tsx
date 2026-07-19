@@ -14,6 +14,14 @@ function RoleCompany({ entry, className }: { entry: ExperienceEntry; className: 
   );
 }
 
+function FutureLabel({ entry, className }: { entry: ExperienceEntry; className: string }) {
+  return (
+    <div className={className}>
+      <div className={styles.futureRole}>{entry.role}</div>
+    </div>
+  );
+}
+
 interface ExperienceMarkerProps {
   entry: ExperienceEntry;
   isAbove: boolean;
@@ -28,12 +36,18 @@ export function ExperienceMarker({
   itemIndex,
 }: ExperienceMarkerProps) {
   const { opacity, y } = useReveal(sectionIndex, itemIndex, ITEM_STAGGER_SPREAD);
+  const labelClassName = isAbove ? styles.labelAbove : styles.labelBelow;
+  const label = entry.isFuture ? (
+    <FutureLabel entry={entry} className={labelClassName} />
+  ) : (
+    <RoleCompany entry={entry} className={labelClassName} />
+  );
 
   return (
     <motion.div className={styles.marker} style={{ opacity, y }}>
-      {isAbove && <RoleCompany entry={entry} className={styles.labelAbove} />}
-      <div className={styles.dot} />
-      {!isAbove && <RoleCompany entry={entry} className={styles.labelBelow} />}
+      {isAbove && label}
+      <div className={entry.isFuture ? `${styles.dot} ${styles.dotFuture}` : styles.dot} />
+      {!isAbove && label}
       <div className={styles.years}>{entry.years}</div>
     </motion.div>
   );
