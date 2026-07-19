@@ -6,6 +6,8 @@ import styles from './SectionShell.module.css';
 interface SectionShellProps {
   index: number;
   label: string;
+  /** Rendered as a sibling of the reveal-animated content, e.g. Hero's parallax shapes. */
+  decoration?: ReactNode;
   children: ReactNode;
 }
 
@@ -14,7 +16,7 @@ interface SectionShellProps {
  * background, and the scroll-tied reveal animation. Individual sections own
  * their own internal layout inside `children`.
  */
-export function SectionShell({ index, label, children }: SectionShellProps) {
+export function SectionShell({ index, label, decoration, children }: SectionShellProps) {
   const { opacity, y } = useReveal(index);
   const isAltBackground = index % 2 === 1;
 
@@ -23,6 +25,7 @@ export function SectionShell({ index, label, children }: SectionShellProps) {
       data-screen-label={label}
       className={isAltBackground ? `${styles.section} ${styles.alt}` : styles.section}
     >
+      {decoration}
       <motion.div className={styles.content} style={{ opacity, y }}>
         {children}
       </motion.div>
