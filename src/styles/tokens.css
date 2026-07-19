@@ -40,5 +40,8 @@
 
   /* Layout */
   --kq-section-padding: 110px 90px 70px 190px;
+  /* Smaller, symmetric padding once the left nav rail relocates to a bottom bar;
+     extra bottom clearance keeps content off that bar. */
+  --kq-section-padding-mobile: 90px 24px 110px;
   --kq-mobile-breakpoint: 860px;
 }

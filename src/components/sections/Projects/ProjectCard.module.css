@@ -3,6 +3,17 @@
   width: 300px;
 }
 
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  .wrapper {
+    flex: none;
+    width: 100%;
+    /* Cards fan out via an inline marginLeft (Projects.tsx); stacked
+       vertically on mobile that overlap no longer makes sense. */
+    margin-left: 0 !important;
+  }
+}
+
 .card {
   background: #fff;
   border-radius: var(--kq-radius-card);

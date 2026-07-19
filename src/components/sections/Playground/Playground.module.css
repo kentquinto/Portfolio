@@ -25,3 +25,16 @@
   flex: 1;
   min-height: 0;
 }
+
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  .root {
+    height: auto;
+  }
+
+  .panels {
+    flex-direction: column;
+    flex: none;
+    gap: 20px;
+  }
+}

@@ -38,3 +38,24 @@
   justify-content: space-around;
   align-items: center;
 }
+
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  /* 3 markers with above/below-alternating labels don't translate cleanly
+     to a narrow stack — let the strip scroll horizontally instead. */
+  .timeline {
+    height: auto;
+    overflow-x: auto;
+    padding: 8px 4px;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .markers {
+    position: static;
+    display: inline-flex;
+    gap: 56px;
+  }
+}

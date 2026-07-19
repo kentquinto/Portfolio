@@ -23,3 +23,12 @@
   align-items: flex-start;
   height: 58%;
 }
+
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  .row {
+    flex-direction: column;
+    height: auto;
+    gap: 24px;
+  }
+}

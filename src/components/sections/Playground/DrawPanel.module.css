@@ -40,3 +40,13 @@
   cursor: crosshair;
   touch-action: none;
 }
+
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  .panel {
+    /* Like MousePhysicsPanel, the canvas has no intrinsic content height
+       for flex:1 to resolve against once .panels stacks with auto height. */
+    flex: none;
+    height: 320px;
+  }
+}

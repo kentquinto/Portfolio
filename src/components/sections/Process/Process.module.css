@@ -39,3 +39,25 @@
   justify-content: space-between;
   align-items: center;
 }
+
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  /* 7 steps side by side can't fit a phone width — let the strip scroll
+     horizontally instead of redesigning the connected-timeline visual. */
+  .timeline {
+    height: auto;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .steps {
+    position: static;
+    display: inline-flex;
+    gap: 40px;
+    padding: 4px;
+  }
+}
