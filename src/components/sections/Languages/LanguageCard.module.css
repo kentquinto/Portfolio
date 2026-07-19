@@ -1,0 +1,50 @@
+.card {
+  flex: 0 0 240px;
+  background: #fff;
+  border-radius: var(--kq-radius-card);
+  padding: 30px;
+  box-shadow: 0 24px 50px -28px rgba(26, 25, 23, 0.3);
+}
+
+.badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--card-color) 13%, transparent);
+  color: var(--card-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--kq-font-heading);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.violet {
+  --card-color: var(--kq-palette-violet);
+}
+
+.amber {
+  --card-color: var(--kq-accent-amber);
+}
+
+.green {
+  --card-color: var(--kq-accent-green);
+}
+
+.coral {
+  --card-color: var(--kq-accent-coral);
+}
+
+.name {
+  margin-top: 18px;
+  font-family: var(--kq-font-heading);
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.level {
+  font-size: 13px;
+  color: var(--kq-caption);
+  margin-top: 4px;
+}

@@ -14,6 +14,7 @@ import { Skills } from '@/components/sections/Skills/Skills';
 import { Projects } from '@/components/sections/Projects/Projects';
 import { Process } from '@/components/sections/Process/Process';
 import { Experience } from '@/components/sections/Experience/Experience';
+import { Languages } from '@/components/sections/Languages/Languages';
 import { SECTIONS, type SectionMeta } from '@/data/sections';
 import styles from './Portfolio.module.css';
 
@@ -44,6 +45,8 @@ function renderSectionContent(section: SectionMeta, index: number): ReactNode {
       return <Process />;
     case 'experience':
       return <Experience />;
+    case 'languages':
+      return <Languages />;
     default:
       return <SectionPlaceholder index={index} label={section.navLabel} />;
   }
