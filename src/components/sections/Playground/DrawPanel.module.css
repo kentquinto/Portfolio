@@ -1,5 +1,10 @@
 .panel {
   flex: 1.2;
+  /* Without this, the canvas's intrinsic replaced-element size (see
+     .canvas below) can inflate this panel's automatic minimum height
+     past what .panels stretches it to, pushing the panel — and the
+     draw board inside it — past the section's bottom edge. */
+  min-height: 0;
   background: #fff;
   border-radius: var(--kq-radius-card);
   border: 1px solid var(--kq-border);
@@ -34,6 +39,12 @@
 
 .canvas {
   flex: 1;
+  /* <canvas> is a replaced element with a default intrinsic size (300x150)
+     that flexbox's automatic-minimum-size rule respects unless overridden —
+     without this, that default (or a stale drawing-buffer size set by
+     useDrawingCanvas) can act as a height floor larger than the space
+     actually available, growing the canvas past the panel/section bounds. */
+  min-height: 0;
   width: 100%;
   border-radius: 12px;
   background: #faf9f6;
