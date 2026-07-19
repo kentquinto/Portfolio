@@ -4,12 +4,3 @@
   background: var(--kq-paper);
   color: var(--kq-ink);
 }
-
-.placeholderLabel {
-  margin: 0;
-  font-family: var(--kq-font-heading);
-  font-size: 13px;
-  letter-spacing: 0.24em;
-  color: var(--kq-label);
-  text-transform: uppercase;
-}

@@ -16,23 +16,11 @@ import { Process } from '@/components/sections/Process/Process';
 import { Experience } from '@/components/sections/Experience/Experience';
 import { Languages } from '@/components/sections/Languages/Languages';
 import { Playground } from '@/components/sections/Playground/Playground';
+import { Contact } from '@/components/sections/Contact/Contact';
 import { SECTIONS, type SectionMeta } from '@/data/sections';
 import styles from './Portfolio.module.css';
 
-/**
- * Section content is filled in one at a time (see docs/design-brief.md); until
- * a section's own component lands, its slot renders this placeholder label so
- * scroll/nav/reveal behavior stays fully testable in the meantime.
- */
-function SectionPlaceholder({ index, label }: { index: number; label: string }) {
-  return (
-    <p className={styles.placeholderLabel}>
-      {String(index + 1).padStart(2, '0')} — {label}
-    </p>
-  );
-}
-
-function renderSectionContent(section: SectionMeta, index: number): ReactNode {
+function renderSectionContent(section: SectionMeta): ReactNode {
   switch (section.id) {
     case 'hero':
       return <Hero />;
@@ -50,8 +38,10 @@ function renderSectionContent(section: SectionMeta, index: number): ReactNode {
       return <Languages />;
     case 'playground':
       return <Playground />;
+    case 'contact':
+      return <Contact />;
     default:
-      return <SectionPlaceholder index={index} label={section.navLabel} />;
+      throw new Error(`No section component registered for id "${section.id}"`);
   }
 }
 
@@ -81,7 +71,7 @@ export function Portfolio() {
                   label={section.navLabel}
                   decoration={renderSectionDecoration(section)}
                 >
-                  {renderSectionContent(section, index)}
+                  {renderSectionContent(section)}
                 </SectionShell>
               ))}
             </ScrollContainer>
