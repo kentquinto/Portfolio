@@ -17,6 +17,9 @@
 
   /* Accent (swappable at runtime by the theme switcher) */
   --kq-accent: #7d6bf0;
+
+  /* Fixed 4-color decorative palette (independent of the swappable accent above) */
+  --kq-palette-violet: #7d6bf0;
   --kq-accent-amber: #f0b53d;
   --kq-accent-green: #4bb17e;
   --kq-accent-coral: #ef7a6b;
