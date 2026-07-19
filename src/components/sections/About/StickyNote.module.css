@@ -1,0 +1,21 @@
+.note {
+  position: absolute;
+  width: 150px;
+  padding: 20px;
+  font-family: var(--kq-font-accent);
+  font-style: italic;
+  font-size: 19px;
+  box-shadow: 0 16px 30px -16px rgba(26, 25, 23, 0.25);
+}
+
+.amber {
+  background: var(--kq-accent-amber);
+  opacity: 0.9;
+}
+
+.green {
+  background: var(--kq-accent-green);
+  opacity: 0.85;
+  color: #fff;
+  width: 160px;
+}
