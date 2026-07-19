@@ -1,0 +1,28 @@
+.section {
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background: var(--kq-paper);
+  overflow: hidden;
+}
+
+.alt {
+  background: var(--kq-paper-alt);
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+  padding: var(--kq-section-padding);
+}
+
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  .section {
+    flex: 0 0 auto;
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+  }
+}
