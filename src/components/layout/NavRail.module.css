@@ -58,8 +58,20 @@
     right: 0;
     flex-direction: row;
     justify-content: center;
+    gap: 14px;
     padding: 14px 20px;
     background: rgba(246, 244, 239, 0.92);
     border-top: 1px solid var(--kq-border);
+  }
+
+  .item {
+    gap: 0;
+  }
+
+  .label {
+    /* Even inactive (opacity:0) labels still reserve their full text
+       width in the flex row — 9 sections' worth overflows a phone
+       screen with nowhere to scroll. Dots-only nav on mobile instead. */
+    display: none;
   }
 }

@@ -4,6 +4,16 @@
   pointer-events: none;
 }
 
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  /* Percentage-based positions tuned for a wide desktop viewport collide
+     with the headline text on a narrow one; these are purely decorative
+     (aria-hidden), so hide them rather than fight the overlap. */
+  .layer {
+    display: none;
+  }
+}
+
 .circleWrapper {
   position: absolute;
   top: 14%;

@@ -30,3 +30,17 @@
   flex: 1;
   margin-top: 10px;
 }
+
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  .root {
+    height: auto;
+  }
+
+  .canvas {
+    /* flex:1 has nothing to grow into once .root's height is auto (see
+       SectionShell's mobile .content override) — give it a real height. */
+    flex: none;
+    height: 420px;
+  }
+}

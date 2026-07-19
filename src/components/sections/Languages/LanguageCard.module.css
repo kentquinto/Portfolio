@@ -6,6 +6,16 @@
   box-shadow: 0 24px 50px -28px rgba(26, 25, 23, 0.3);
 }
 
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  .card {
+    /* .row switches to flex-direction:column on mobile, where a 240px
+       flex-basis would set height instead of width. */
+    flex: none;
+    width: 100%;
+  }
+}
+
 .badge {
   width: 44px;
   height: 44px;

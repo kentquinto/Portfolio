@@ -54,3 +54,13 @@
   font-size: 13px;
   font-weight: 500;
 }
+
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  .panel {
+    /* Unlike the other two panels, this one's content (title/subtitle/
+       swatches/preview) is real in-flow content, so flex:none alone sizes
+       it correctly without needing an explicit height. */
+    flex: none;
+  }
+}
