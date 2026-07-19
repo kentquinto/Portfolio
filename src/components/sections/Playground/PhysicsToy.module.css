@@ -1,0 +1,36 @@
+.toy {
+  position: absolute;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.square {
+  border-radius: 12px;
+}
+
+.ring {
+  border-radius: 50%;
+  border: 3px solid var(--kq-ink);
+}
+
+.violet {
+  background: var(--kq-palette-violet);
+}
+
+.amber {
+  background: var(--kq-accent-amber);
+}
+
+.green {
+  background: var(--kq-accent-green);
+}
+
+.coral {
+  background: var(--kq-accent-coral);
+}
+
+.ink {
+  background: none;
+}

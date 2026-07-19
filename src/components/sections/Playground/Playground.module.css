@@ -1,0 +1,27 @@
+.root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  font-size: var(--kq-text-eyebrow);
+  letter-spacing: 0.24em;
+  color: var(--kq-label);
+  margin-bottom: 8px;
+}
+
+.heading {
+  margin: 0 0 26px;
+  font-family: var(--kq-font-heading);
+  font-weight: 600;
+  font-size: var(--kq-text-h2);
+  letter-spacing: -0.02em;
+}
+
+.panels {
+  display: flex;
+  gap: 26px;
+  flex: 1;
+  min-height: 0;
+}

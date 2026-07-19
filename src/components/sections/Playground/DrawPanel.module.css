@@ -1,0 +1,42 @@
+.panel {
+  flex: 1.2;
+  background: #fff;
+  border-radius: var(--kq-radius-card);
+  border: 1px solid var(--kq-border);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: var(--kq-font-heading);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.clearButton {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  background: var(--kq-paper-alt);
+  border: none;
+  padding: 7px 12px;
+  border-radius: var(--kq-radius-pill);
+  cursor: pointer;
+  color: var(--kq-body);
+}
+
+.canvas {
+  flex: 1;
+  width: 100%;
+  border-radius: 12px;
+  background: #faf9f6;
+  cursor: crosshair;
+  touch-action: none;
+}
