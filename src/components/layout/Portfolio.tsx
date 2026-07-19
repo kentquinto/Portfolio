@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@/context/ThemeProvider';
 import { ScrollProvider } from '@/context/ScrollProvider';
 import { ScrollContainer } from '@/components/layout/ScrollContainer';
 import { ProgressBar } from '@/components/layout/ProgressBar';
@@ -22,19 +23,21 @@ function SectionPlaceholder({ index, label }: { index: number; label: string }) 
 
 export function Portfolio() {
   return (
-    <ScrollProvider>
-      <div className={styles.root}>
-        <ProgressBar />
-        <NavRail />
-        <TopActions />
-        <ScrollContainer>
-          {SECTIONS.map((section, index) => (
-            <SectionShell key={section.id} index={index} label={section.navLabel}>
-              <SectionPlaceholder index={index} label={section.navLabel} />
-            </SectionShell>
-          ))}
-        </ScrollContainer>
-      </div>
-    </ScrollProvider>
+    <ThemeProvider>
+      <ScrollProvider>
+        <div className={styles.root}>
+          <ProgressBar />
+          <NavRail />
+          <TopActions />
+          <ScrollContainer>
+            {SECTIONS.map((section, index) => (
+              <SectionShell key={section.id} index={index} label={section.navLabel}>
+                <SectionPlaceholder index={index} label={section.navLabel} />
+              </SectionShell>
+            ))}
+          </ScrollContainer>
+        </div>
+      </ScrollProvider>
+    </ThemeProvider>
   );
 }
