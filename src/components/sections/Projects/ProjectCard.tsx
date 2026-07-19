@@ -44,7 +44,13 @@ export function ProjectCard({
           onMouseLeave();
         }}
       >
-        <div className={styles.image}>project image</div>
+        <div className={styles.image}>
+          {project.imageSrc ? (
+            <img src={project.imageSrc} alt={`${project.title} preview`} className={styles.photo} />
+          ) : (
+            'project image'
+          )}
+        </div>
         <div className={styles.metaRow}>
           <span>{project.category}</span>
           <span>{project.year}</span>
