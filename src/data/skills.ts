@@ -83,4 +83,13 @@ export const SKILLS: readonly Skill[] = [
     color: 'amber',
     floatDurationS: 6.2,
   },
+  {
+    name: 'Claude Code',
+    note: 'AI pair programming',
+    sizePx: 112,
+    x: '84%',
+    y: '22%',
+    color: 'coral',
+    floatDurationS: 6.9,
+  },
 ];
