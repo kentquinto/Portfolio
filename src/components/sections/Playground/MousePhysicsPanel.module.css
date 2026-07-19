@@ -1,0 +1,18 @@
+.panel {
+  flex: 1.2;
+  position: relative;
+  background: #fff;
+  border-radius: var(--kq-radius-card);
+  border: 1px solid var(--kq-border);
+  overflow: hidden;
+}
+
+.title {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  font-family: var(--kq-font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 2;
+}
