@@ -1,0 +1,41 @@
+:root {
+  /* Paper backgrounds (sections alternate between the two) */
+  --kq-paper: #f6f4ef;
+  --kq-paper-alt: #f2efe8;
+
+  /* Text */
+  --kq-ink: #1a1917;
+  --kq-label: #a4998a;
+  --kq-body: #6b675e;
+  --kq-body-strong: #3f3c37;
+  --kq-caption: #8a8578;
+
+  /* Borders */
+  --kq-border: #e6e2d8;
+  --kq-border-strong: #e0dccf;
+  --kq-border-muted: #d8d3c3;
+
+  /* Accent (swappable at runtime by the theme switcher) */
+  --kq-accent: #7d6bf0;
+  --kq-accent-amber: #f0b53d;
+  --kq-accent-green: #4bb17e;
+  --kq-accent-coral: #ef7a6b;
+
+  /* Type */
+  --kq-font-heading: 'Space Grotesk', sans-serif;
+  --kq-font-body: 'Inter', sans-serif;
+  --kq-font-accent: 'Instrument Serif', serif;
+
+  --kq-text-hero: 96px;
+  --kq-text-h2: 44px;
+  --kq-text-eyebrow: 13px;
+
+  /* Shape */
+  --kq-radius-card: 18px;
+  --kq-radius-pill: 100px;
+  --kq-shadow-card: 0 30px 60px -30px rgba(26, 25, 23, 0.35);
+
+  /* Layout */
+  --kq-section-padding: 110px 90px 70px 190px;
+  --kq-mobile-breakpoint: 860px;
+}
