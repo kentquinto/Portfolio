@@ -45,4 +45,15 @@ export const PROJECTS: readonly Project[] = [
     color: 'green',
     url: 'https://github.com/aproposito/03_Sprint_03_task',
   },
+  {
+    title: 'Kent Quinto — Portfolio',
+    category: 'Frontend',
+    year: '2026',
+    description:
+      'This site — a horizontally-scrolling React portfolio built with TypeScript and Framer Motion, AI-paired with Claude Code through a full git-flow branch-per-feature workflow.',
+    tag1: 'React',
+    tag2: 'TypeScript',
+    color: 'coral',
+    url: 'https://github.com/kentquinto/Portfolio',
+  },
 ];

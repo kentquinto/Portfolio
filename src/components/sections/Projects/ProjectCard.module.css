@@ -52,6 +52,10 @@
   --project-color: var(--kq-accent-green);
 }
 
+.coral {
+  --project-color: var(--kq-accent-coral);
+}
+
 .metaRow {
   display: flex;
   justify-content: space-between;
