@@ -1,4 +1,7 @@
 import type { PaletteColor } from '@/data/palette';
+import tcgRestApiImage from '@/assets/projects/tcg-manager-rest-api-docs.webp';
+import tcgReactFrontendImage from '@/assets/projects/tcg-manager-react-frontend.webp';
+import portfolioImage from '@/assets/projects/kent-quinto-portfolio.webp';
 
 export interface Project {
   title: string;
@@ -9,6 +12,8 @@ export interface Project {
   tag2: string;
   color: PaletteColor;
   url: string;
+  /** Falls back to the striped placeholder in ProjectCard when omitted. */
+  imageSrc?: string;
 }
 
 export const PROJECTS: readonly Project[] = [
@@ -22,6 +27,7 @@ export const PROJECTS: readonly Project[] = [
     tag2: 'Docker',
     color: 'violet',
     url: 'https://github.com/kentquinto/Sprint5-1',
+    imageSrc: tcgRestApiImage,
   },
   {
     title: 'TCG Manager — React Frontend',
@@ -33,17 +39,7 @@ export const PROJECTS: readonly Project[] = [
     tag2: 'Vite',
     color: 'amber',
     url: 'https://github.com/kentquinto/Sprint5-2',
-  },
-  {
-    title: 'TODO App',
-    category: 'Full-Stack',
-    year: '2026',
-    description:
-      'Team-built multi-user task manager with dual JSON/MySQL persistence, tagging, filtering, and profile management in raw PHP MVC.',
-    tag1: 'PHP',
-    tag2: 'MySQL',
-    color: 'green',
-    url: 'https://github.com/aproposito/03_Sprint_03_task',
+    imageSrc: tcgReactFrontendImage,
   },
   {
     title: 'Kent Quinto — Portfolio',
@@ -55,5 +51,6 @@ export const PROJECTS: readonly Project[] = [
     tag2: 'TypeScript',
     color: 'coral',
     url: 'https://github.com/kentquinto/Portfolio',
+    imageSrc: portfolioImage,
   },
 ];
