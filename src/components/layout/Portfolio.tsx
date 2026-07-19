@@ -12,6 +12,7 @@ import { FloatingShapes } from '@/components/sections/Hero/FloatingShapes';
 import { About } from '@/components/sections/About/About';
 import { Skills } from '@/components/sections/Skills/Skills';
 import { Projects } from '@/components/sections/Projects/Projects';
+import { Process } from '@/components/sections/Process/Process';
 import { SECTIONS, type SectionMeta } from '@/data/sections';
 import styles from './Portfolio.module.css';
 
@@ -38,6 +39,8 @@ function renderSectionContent(section: SectionMeta, index: number): ReactNode {
       return <Skills />;
     case 'work':
       return <Projects />;
+    case 'process':
+      return <Process />;
     default:
       return <SectionPlaceholder index={index} label={section.navLabel} />;
   }
