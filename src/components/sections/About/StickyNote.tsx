@@ -1,5 +1,5 @@
 import type { AboutStickyNote } from '@/data/about';
-import { useIsMobile } from '@/hooks/useIsMobile';
+import { useMobileValue } from '@/hooks/useMobileValue';
 import styles from './StickyNote.module.css';
 
 const COLOR_CLASS: Record<AboutStickyNote['color'], string> = {
@@ -8,8 +8,7 @@ const COLOR_CLASS: Record<AboutStickyNote['color'], string> = {
 };
 
 export function StickyNote({ note }: { note: AboutStickyNote }) {
-  const isMobile = useIsMobile();
-  const position = (isMobile && note.mobilePosition) || note.position;
+  const position = useMobileValue(note.position, note.mobilePosition);
 
   return (
     <div

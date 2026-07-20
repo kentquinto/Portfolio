@@ -39,8 +39,11 @@
 
   .canvas {
     /* flex:1 has nothing to grow into once .root's height is auto (see
-       SectionShell's mobile .content override) — give it a real height. */
+       SectionShell's mobile .content override) — give it a real height.
+       Taller than desktop's flexed space since the mobile-specific bubble
+       positions (see data/skills.ts mobileX/mobileY) lay out as a spacious
+       two-column stack rather than desktop's wide scatter. */
     flex: none;
-    height: 420px;
+    height: 740px;
   }
 }
