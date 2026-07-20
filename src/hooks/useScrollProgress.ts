@@ -1,8 +1,6 @@
 import { useMotionValue, type MotionValue } from 'framer-motion';
 import { useCallback, useEffect, useRef } from 'react';
-import { SECTIONS } from '@/data/sections';
-
-const LAST_SECTION_INDEX = SECTIONS.length - 1;
+import { LAST_SECTION_INDEX } from '@/data/sections';
 
 interface UseScrollProgressResult {
   scrollerRef: React.RefObject<HTMLDivElement | null>;

@@ -1,8 +1,6 @@
 import { useScrollContext } from '@/hooks/useScrollContext';
-import { SECTIONS } from '@/data/sections';
+import { LAST_SECTION_INDEX } from '@/data/sections';
 import styles from './MobileScrollNav.module.css';
-
-const LAST_SECTION_INDEX = SECTIONS.length - 1;
 
 /**
  * Mobile-only floating up/down buttons for moving one section at a time.

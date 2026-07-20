@@ -1,9 +1,7 @@
 import { motion, useTransform } from 'framer-motion';
 import { useScrollContext } from '@/hooks/useScrollContext';
-import { SECTIONS } from '@/data/sections';
+import { LAST_SECTION_INDEX } from '@/data/sections';
 import styles from './ProgressBar.module.css';
-
-const LAST_SECTION_INDEX = SECTIONS.length - 1;
 
 export function ProgressBar() {
   const { scrollProgress } = useScrollContext();

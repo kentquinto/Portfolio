@@ -19,3 +19,6 @@ export const SECTIONS: readonly SectionMeta[] = [
   { id: 'playground', navLabel: 'Playground' },
   { id: 'contact', navLabel: 'Contact' },
 ];
+
+/** Index of the last section — the upper bound for clamping/disabling section navigation. */
+export const LAST_SECTION_INDEX = SECTIONS.length - 1;
