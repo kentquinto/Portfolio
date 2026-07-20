@@ -67,6 +67,7 @@ A single-page, horizontally-scrolling developer portfolio for Kent Quinto (full-
 
 - Layout: heading + subhead, then a full-width/height relative canvas of absolutely-positioned floating circular "bubbles" (each with a CSS float animation, own duration/size/position).
 - Components: bubbles for PHP, Laravel, React.js, MySQL, Docker, JavaScript, REST APIs, Tailwind CSS, Claude Code — each a translucent-fill circle with the skill name; on hover, a dark tooltip appears below the bubble with a one-line note (e.g. "APIs & MVC architecture").
+- Mobile: the desktop scatter overlaps and clips at a phone's width, so every bubble gets a dedicated mobile position instead — a spacious two-column stack, no overlap, no horizontal scroll.
 
 ### 04 — Projects (centerpiece)
 
@@ -78,11 +79,13 @@ A single-page, horizontally-scrolling developer portfolio for Kent Quinto (full-
 
 - Layout: heading, then a horizontal line with 7 evenly-spaced circular step markers.
 - Components: Discover → Research → Sketch → Design → Prototype → Build → Launch, each a numbered outlined circle (color cycles through the 4 accents) with a label beneath.
+- Mobile: the line turns vertical — a column down the left edge with each step as a row (circle beside its label) top to bottom, instead of scrolling the horizontal strip sideways.
 
 ### 06 — Experience & Education
 
 - Layout: horizontal timeline line with markers, alternating label position above/below the line.
 - Components: ETP Xavier (Bachillerato of Science, 2017–2019) — Hospitality Professional (Multiple Hotels & Restaurants, Barcelona, 2019–2025) — IT Academy (Full-Stack Web Development, 2026–Present) — plus a 4th, lighthearted "open slot" marker ("Your company, maybe? →") styled distinctly (dashed accent-colored outline dot, italic accent-font text) so it reads as a placeholder rather than a real entry. Each real marker: small filled dot, role + company (above or below), years beneath.
+- Mobile: the line turns vertical — a column down the left edge with each marker as a row (dot beside role/company/years, no more above/below alternation) top to bottom, instead of scrolling the horizontal strip sideways.
 
 ### 07 — Languages
 
@@ -92,9 +95,9 @@ A single-page, horizontally-scrolling developer portfolio for Kent Quinto (full-
 ### 08 — Playground
 
 - Layout: heading, then 3 equal-height panels side by side.
-- Panel A — **Mouse physics**: 5 shapes inside a bordered box; on mouse move, each shape is repelled away from the cursor proportionally to proximity (radius ~180px), resetting to origin on mouse leave.
+- Panel A — **Mouse physics**: 5 shapes inside a bordered box; on mouse move or touch drag, each shape is repelled away from the pointer proportionally to proximity (radius ~180px), resetting to origin on mouse leave / touch release.
 - Panel B — **Theme switcher**: 4 color swatch buttons (violet/amber/green/coral). Clicking one sets the CSS custom property `--kq-accent` on `document.documentElement` (recoloring the progress bar, active nav dot, button hovers, and drawing-pen color site-wide) and shows a ring around the active swatch plus a "Live preview" pill in the active color.
-- Panel C — **Draw**: an HTML canvas the user can free-draw on with the mouse (stroke color = current theme accent), plus a "CLEAR" button.
+- Panel C — **Draw**: an HTML canvas the user can free-draw on with mouse or touch (stroke color = current theme accent), plus a "CLEAR" button. Uses Pointer Events throughout so mouse, touch, and pen all drive it identically.
 
 ### 09 — Contact
 
@@ -104,7 +107,7 @@ A single-page, horizontally-scrolling developer portfolio for Kent Quinto (full-
 ## Interactions & Behavior (site-wide)
 
 - **Horizontal scroll (desktop)**: a single scroll container holds all 9 sections in a row (`display:flex; overflow-x:auto`). A `wheel` listener remaps vertical wheel delta to `scrollLeft` so a normal mouse wheel/trackpad scrolls the story sideways.
-- **Vertical fallback (mobile, ≤860px)**: same container switches to `flex-direction:column; overflow-y:auto`; the wheel remap is disabled; the nav rail relocates to a fixed bottom bar (dots only, no labels — 9 labels' worth of text doesn't fit a phone width). Sections stay pinned to one viewport height each (so the scroll-progress math stays accurate); content taller than that scrolls within the section instead.
+- **Vertical fallback (mobile, ≤860px)**: same container switches to `flex-direction:column; overflow-y:auto`; the wheel remap is disabled; the nav rail relocates to a fixed bottom bar (dots only, no labels — 9 labels' worth of text doesn't fit a phone width). Sections stay pinned to one viewport height each (so the scroll-progress math stays accurate); content taller than that scrolls within the section instead. No section ever requires a horizontal swipe to read fully — `SectionShell`'s `.content` explicitly sets `overflow-x: hidden` (setting only `overflow-y` implicitly makes `overflow-x` computed as `auto` too per spec, which silently made a few sections sideways-swipeable before this was added), and the two sections whose desktop layout is inherently horizontal (Process, Experience) get a real vertical redesign on mobile rather than a sideways-scrolling strip.
 - **Scroll-tied reveals**: a single `scrollProgress` float (0…8, one integer per section) drives every section's entrance animation. Each section (and, for list content, each item) computes a 0–1 "reveal" value from how close `scrollProgress` is to its own index, driving `opacity` and a `translateY` (items further away are more faded/offset). List items (skills, projects, process steps, timeline, languages) stagger in via a small per-index offset subtracted from the reveal.
 - **Parallax**: 3 decorative hero shapes translate opposite the cursor position (relative to viewport center), scaled by a per-shape "depth" factor. Hidden on mobile (percentage-based positions tuned for a wide viewport collide with the headline text on a narrow one).
 - **Magnetic buttons**: any element flagged for the effect translates toward the cursor (capped pull, ~0.28× the offset) when the cursor is within ~140px, and springs back via CSS transition on mouse leave.
