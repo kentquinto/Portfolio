@@ -35,17 +35,20 @@ export function useDrawingCanvas(): UseDrawingCanvasResult {
     let lastX = 0;
     let lastY = 0;
 
-    const getPosition = (event: MouseEvent): [number, number] => {
+    // Pointer Events (not Mouse Events) so drawing works identically for
+    // mouse, touch, and pen — a touch drag never fires 'mousemove', only a
+    // single synthetic compatibility 'mousedown'/'mouseup' pair on tap.
+    const getPosition = (event: PointerEvent): [number, number] => {
       const rect = canvas.getBoundingClientRect();
       return [event.clientX - rect.left, event.clientY - rect.top];
     };
 
-    const handleMouseDown = (event: MouseEvent) => {
+    const handlePointerDown = (event: PointerEvent) => {
       isDrawing = true;
       [lastX, lastY] = getPosition(event);
     };
 
-    const handleMouseMove = (event: MouseEvent) => {
+    const handlePointerMove = (event: PointerEvent) => {
       if (!isDrawing) return;
       const [x, y] = getPosition(event);
       context.strokeStyle = accentRef.current;
@@ -58,21 +61,23 @@ export function useDrawingCanvas(): UseDrawingCanvasResult {
       [lastX, lastY] = [x, y];
     };
 
-    const handleMouseUp = () => {
+    const handlePointerUp = () => {
       isDrawing = false;
     };
 
-    canvas.addEventListener('mousedown', handleMouseDown);
-    canvas.addEventListener('mousemove', handleMouseMove);
-    canvas.addEventListener('mouseleave', handleMouseUp);
-    window.addEventListener('mouseup', handleMouseUp);
+    canvas.addEventListener('pointerdown', handlePointerDown);
+    canvas.addEventListener('pointermove', handlePointerMove);
+    canvas.addEventListener('pointerleave', handlePointerUp);
+    window.addEventListener('pointerup', handlePointerUp);
+    window.addEventListener('pointercancel', handlePointerUp);
     window.addEventListener('resize', resize);
 
     return () => {
-      canvas.removeEventListener('mousedown', handleMouseDown);
-      canvas.removeEventListener('mousemove', handleMouseMove);
-      canvas.removeEventListener('mouseleave', handleMouseUp);
-      window.removeEventListener('mouseup', handleMouseUp);
+      canvas.removeEventListener('pointerdown', handlePointerDown);
+      canvas.removeEventListener('pointermove', handlePointerMove);
+      canvas.removeEventListener('pointerleave', handlePointerUp);
+      window.removeEventListener('pointerup', handlePointerUp);
+      window.removeEventListener('pointercancel', handlePointerUp);
       window.removeEventListener('resize', resize);
     };
   }, []);
