@@ -1,4 +1,5 @@
 import type { AboutStickyNote } from '@/data/about';
+import { useMobileValue } from '@/hooks/useMobileValue';
 import styles from './StickyNote.module.css';
 
 const COLOR_CLASS: Record<AboutStickyNote['color'], string> = {
@@ -7,10 +8,12 @@ const COLOR_CLASS: Record<AboutStickyNote['color'], string> = {
 };
 
 export function StickyNote({ note }: { note: AboutStickyNote }) {
+  const position = useMobileValue(note.position, note.mobilePosition);
+
   return (
     <div
       className={`${styles.note} ${COLOR_CLASS[note.color]}`}
-      style={{ ...note.position, transform: `rotate(${note.rotationDeg}deg)` }}
+      style={{ ...position, transform: `rotate(${note.rotationDeg}deg)` }}
     >
       {note.text}
     </div>

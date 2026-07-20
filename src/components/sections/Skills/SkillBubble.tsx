@@ -1,5 +1,6 @@
 import { motion, useTransform } from 'framer-motion';
 import { useReveal } from '@/hooks/useReveal';
+import { useMobileValue } from '@/hooks/useMobileValue';
 import type { Skill } from '@/data/skills';
 import styles from './SkillBubble.module.css';
 
@@ -24,13 +25,15 @@ export function SkillBubble({
 }: SkillBubbleProps) {
   const { opacity, y } = useReveal(sectionIndex, itemIndex, ITEM_STAGGER_SPREAD);
   const scale = useTransform(opacity, (value) => 0.85 + value * 0.15);
+  const left = useMobileValue(skill.x, skill.mobileX);
+  const top = useMobileValue(skill.y, skill.mobileY);
 
   return (
     <motion.div
       className={styles.wrapper}
       style={{
-        left: skill.x,
-        top: skill.y,
+        left,
+        top,
         width: skill.sizePx,
         height: skill.sizePx,
         opacity,

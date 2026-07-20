@@ -22,7 +22,7 @@ Designed and directed by me. I structured the project for a clean, maintainable 
 - A live theme switcher that recolors the whole site instantly, including a free-draw canvas that follows the active color
 - Hover-to-front project cards and photo polaroids, so overlapping content never gets stuck unreadable behind another card
 - Full keyboard navigation and `prefers-reduced-motion` support
-- Responsive down to mobile, including a dedicated pass that found and fixed real breakpoint bugs rather than just adding a media query
+- Genuinely responsive, not just resized: sections whose desktop layout is inherently horizontal (Process, Experience) get a real vertical redesign on mobile instead of a sideways-scrolling strip, and every touch-driven interaction (the draw canvas, the mouse-physics toys) uses Pointer Events so it works identically to the desktop mouse version
 
 ## Stack
 

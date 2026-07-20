@@ -79,3 +79,43 @@
   color: var(--kq-label);
   margin-top: 8px;
 }
+
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  /* CSS Grid (not flex order) so the dot can visually span both the label
+     and years rows beside it — a plain flex row can't align one item
+     against two separate wrapped lines of a sibling without restructuring
+     the DOM, but Grid can place items anywhere in the grid regardless of
+     source order. Only one of labelAbove/labelBelow is ever rendered for a
+     given entry (the isAbove prop picks one), so both are safe to place in
+     the same cell. */
+  .marker {
+    display: grid;
+    grid-template-columns: 14px 1fr;
+    column-gap: 16px;
+    row-gap: 4px;
+    align-items: start;
+  }
+
+  .dot {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
+
+  .labelAbove,
+  .labelBelow {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: left;
+    max-width: none;
+    min-height: 0;
+    margin: 0;
+  }
+
+  .years {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 0;
+  }
+}

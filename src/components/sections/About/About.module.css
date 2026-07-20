@@ -74,6 +74,14 @@
   }
 
   .collage {
-    height: 340px;
+    /* flex-basis:0% (from the bare "1" shorthand) has nothing to grow into
+       once .root stacks in a column with height:auto — same fix as
+       MousePhysicsPanel/DrawPanel .panel. Without this the collage
+       collapses to 0 height and every child's `top: X%` resolves to 0,
+       piling every polaroid/sticky-note on top of one another. */
+    flex: none;
+    /* Tall enough for "Always shipping." to sit fully clear below the
+       coding-session polaroid at its repositioned mobile spot. */
+    height: 545px;
   }
 }

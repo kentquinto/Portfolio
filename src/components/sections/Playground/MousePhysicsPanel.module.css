@@ -5,6 +5,9 @@
   border-radius: var(--kq-radius-card);
   border: 1px solid var(--kq-border);
   overflow: hidden;
+  /* A touch drag inside this panel repels the shapes (see PointerEvent
+     handlers) rather than scrolling the page underneath it. */
+  touch-action: none;
 }
 
 .title {

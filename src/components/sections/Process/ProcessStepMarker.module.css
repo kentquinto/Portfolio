@@ -40,3 +40,23 @@
   font-size: 13px;
   letter-spacing: 0.04em;
 }
+
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  .marker {
+    /* Circle beside its label instead of above it, matching Process's
+       vertical (not horizontal) timeline on mobile. */
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .circle {
+    /* Sits directly on top of the timeline's vertical line — needs an
+       opaque background so the line doesn't visibly cut through it. */
+    flex-shrink: 0;
+  }
+
+  .label {
+    font-size: 15px;
+  }
+}
