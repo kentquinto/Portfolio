@@ -1,0 +1,66 @@
+.panel {
+  flex: 0.8;
+  background: #fff;
+  border-radius: var(--kq-radius-card);
+  border: 1px solid var(--kq-border);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: var(--kq-font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: var(--kq-caption);
+  margin-bottom: 18px;
+}
+
+.swatches {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.swatch {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.previewWrap {
+  margin-top: auto;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--kq-paper);
+  text-align: center;
+}
+
+.previewPill {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--kq-radius-pill);
+  background: var(--kq-accent);
+  color: #fff;
+  font-family: var(--kq-font-heading);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  .panel {
+    /* Unlike the other two panels, this one's content (title/subtitle/
+       swatches/preview) is real in-flow content, so flex:none alone sizes
+       it correctly without needing an explicit height. */
+    flex: none;
+  }
+}

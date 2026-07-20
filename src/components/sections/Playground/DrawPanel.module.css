@@ -1,0 +1,63 @@
+.panel {
+  flex: 1.2;
+  /* Without this, the canvas's intrinsic replaced-element size (see
+     .canvas below) can inflate this panel's automatic minimum height
+     past what .panels stretches it to, pushing the panel — and the
+     draw board inside it — past the section's bottom edge. */
+  min-height: 0;
+  background: #fff;
+  border-radius: var(--kq-radius-card);
+  border: 1px solid var(--kq-border);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: var(--kq-font-heading);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.clearButton {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  background: var(--kq-paper-alt);
+  border: none;
+  padding: 7px 12px;
+  border-radius: var(--kq-radius-pill);
+  cursor: pointer;
+  color: var(--kq-body);
+}
+
+.canvas {
+  flex: 1;
+  /* <canvas> is a replaced element with a default intrinsic size (300x150)
+     that flexbox's automatic-minimum-size rule respects unless overridden —
+     without this, that default (or a stale drawing-buffer size set by
+     useDrawingCanvas) can act as a height floor larger than the space
+     actually available, growing the canvas past the panel/section bounds. */
+  min-height: 0;
+  width: 100%;
+  border-radius: 12px;
+  background: #faf9f6;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  .panel {
+    /* Like MousePhysicsPanel, the canvas has no intrinsic content height
+       for flex:1 to resolve against once .panels stacks with auto height. */
+    flex: none;
+    height: 320px;
+  }
+}

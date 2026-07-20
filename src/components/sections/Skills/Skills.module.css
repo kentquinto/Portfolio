@@ -1,0 +1,46 @@
+.root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  font-size: var(--kq-text-eyebrow);
+  letter-spacing: 0.24em;
+  color: var(--kq-label);
+  margin-bottom: 8px;
+}
+
+.heading {
+  margin: 0 0 10px;
+  font-family: var(--kq-font-heading);
+  font-weight: 600;
+  font-size: var(--kq-text-h2);
+  letter-spacing: -0.02em;
+}
+
+.subhead {
+  font-size: 14px;
+  color: var(--kq-caption);
+  margin-bottom: 10px;
+}
+
+.canvas {
+  position: relative;
+  flex: 1;
+  margin-top: 10px;
+}
+
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  .root {
+    height: auto;
+  }
+
+  .canvas {
+    /* flex:1 has nothing to grow into once .root's height is auto (see
+       SectionShell's mobile .content override) — give it a real height. */
+    flex: none;
+    height: 420px;
+  }
+}

@@ -1,0 +1,38 @@
+.section {
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background: var(--kq-paper);
+  overflow: hidden;
+}
+
+.alt {
+  background: var(--kq-paper-alt);
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+  padding: var(--kq-section-padding);
+}
+
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  .section {
+    /* Stays pinned to exactly one viewport tall, same as desktop — the
+       scrollTop/innerHeight index math useScrollProgress relies on (and
+       therefore every reveal animation, the nav rail's active dot, and
+       keyboard nav) assumes every section is a uniform height. A section
+       that grows past 100vh would throw that index off for every section
+       after it. Tall content scrolls *within* the section instead (below). */
+    flex: 0 0 auto;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .content {
+    padding: var(--kq-section-padding-mobile);
+    overflow-y: auto;
+  }
+}

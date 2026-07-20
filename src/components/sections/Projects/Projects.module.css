@@ -1,0 +1,34 @@
+.root {
+  height: 100%;
+}
+
+.eyebrow {
+  font-size: var(--kq-text-eyebrow);
+  letter-spacing: 0.24em;
+  color: var(--kq-label);
+  margin-bottom: 8px;
+}
+
+.heading {
+  margin: 0 0 30px;
+  font-family: var(--kq-font-heading);
+  font-weight: 600;
+  font-size: var(--kq-text-h2);
+  letter-spacing: -0.02em;
+}
+
+.row {
+  display: flex;
+  gap: 0;
+  align-items: flex-start;
+  height: 58%;
+}
+
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  .row {
+    flex-direction: column;
+    height: auto;
+    gap: 24px;
+  }
+}
