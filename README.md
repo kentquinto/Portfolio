@@ -2,6 +2,8 @@
 
 ![Portfolio preview](./docs/preview.webp)
 
+**Live**: [kentquinto.es](https://kentquinto.es)
+
 Personal portfolio site: a single-page, horizontally-scrolling story across nine sections
 (Hero, About, Skills, Projects, Process, Experience, Languages, Playground, Contact).
 Rather than a conventional vertical page, it plays out left to right like a story — one
