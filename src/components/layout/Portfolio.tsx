@@ -5,6 +5,7 @@ import { ScrollProvider } from '@/context/ScrollProvider';
 import { ScrollContainer } from '@/components/layout/ScrollContainer';
 import { ProgressBar } from '@/components/layout/ProgressBar';
 import { NavRail } from '@/components/layout/NavRail';
+import { MobileScrollNav } from '@/components/layout/MobileScrollNav';
 import { TopActions } from '@/components/layout/TopActions';
 import { SectionShell } from '@/components/layout/SectionShell';
 import { Hero } from '@/components/sections/Hero/Hero';
@@ -62,6 +63,7 @@ export function Portfolio() {
           <div className={styles.root}>
             <ProgressBar />
             <NavRail />
+            <MobileScrollNav />
             <TopActions />
             <ScrollContainer>
               {SECTIONS.map((section, index) => (

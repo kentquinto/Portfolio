@@ -21,14 +21,22 @@
 @media (max-width: 860px) {
   .section {
     /* Stays pinned to exactly one viewport tall, same as desktop — the
-       scrollTop/innerHeight index math useScrollProgress relies on (and
+       scroll-position index math useScrollProgress relies on (and
        therefore every reveal animation, the nav rail's active dot, and
        keyboard nav) assumes every section is a uniform height. A section
-       that grows past 100vh would throw that index off for every section
-       after it. Tall content scrolls *within* the section instead (below). */
+       that grows past one viewport would throw that index off for every
+       section after it. Tall content scrolls *within* the section instead
+       (below). */
     flex: 0 0 auto;
     width: 100vw;
+    /* dvh (dynamic viewport height) tracks the *actual* visible viewport as
+       mobile browser chrome (address bar) shows/hides; 100vh can otherwise
+       differ from the real visible height at any given moment, drifting
+       the scroll-position math (and scrollToSection's target) out of sync
+       with where sections really are — visible as the previous section's
+       edge still peeking in after a "jump" to the next one. */
     height: 100vh;
+    height: 100dvh;
   }
 
   .content {
