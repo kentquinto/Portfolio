@@ -23,6 +23,7 @@ Designed and directed by me. I structured the project for a clean, maintainable 
 - Hover-to-front project cards and photo polaroids, so overlapping content never gets stuck unreadable behind another card
 - Full keyboard navigation and `prefers-reduced-motion` support
 - Genuinely responsive, not just resized: sections whose desktop layout is inherently horizontal (Process, Experience) get a real vertical redesign on mobile instead of a sideways-scrolling strip, and every touch-driven interaction (the draw canvas, the mouse-physics toys) uses Pointer Events so it works identically to the desktop mouse version
+- Floating up/down buttons for mobile section navigation, added after concluding that native touch scroll-chaining — does a swipe scroll a tall section's own content, or advance to the next one? — can't be made fully reliable through gesture detection alone; an explicit tap sidesteps the ambiguity entirely
 
 ## Stack
 
