@@ -41,21 +41,30 @@
 
 /* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
 @media (max-width: 860px) {
-  /* 3 markers with above/below-alternating labels don't translate cleanly
-     to a narrow stack — let the strip scroll horizontally instead. */
+  /* 4 markers with above/below-alternating labels don't translate cleanly
+     to a narrow stack. Rather than letting the strip scroll horizontally
+     (previously the case here — but that meant swiping sideways to read a
+     "page" that's otherwise vertical-only), the timeline turns vertical: a
+     line down the left edge (aligned with ExperienceMarker's dot column)
+     with each marker as a row beside it, top to bottom. */
   .timeline {
     height: auto;
-    overflow-x: auto;
-    padding: 8px 4px;
   }
 
   .line {
-    display: none;
+    left: 7px;
+    right: auto;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    height: auto;
   }
 
   .markers {
     position: static;
-    display: inline-flex;
-    gap: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
   }
 }

@@ -34,5 +34,13 @@
   .content {
     padding: var(--kq-section-padding-mobile);
     overflow-y: auto;
+    /* Per spec, setting only overflow-y makes overflow-x computed as "auto"
+       too (not "visible") — so any section whose content happens to be a
+       little too wide for the narrow mobile viewport silently becomes
+       horizontally swipeable. This shouldn't ever be a real interaction on
+       this site; content that's genuinely wider than the section (e.g. a
+       horizontal timeline) needs its own mobile layout, not sideways
+       scroll. */
+    overflow-x: hidden;
   }
 }

@@ -42,22 +42,29 @@
 
 /* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
 @media (max-width: 860px) {
-  /* 7 steps side by side can't fit a phone width — let the strip scroll
-     horizontally instead of redesigning the connected-timeline visual. */
+  /* 7 steps side by side can't fit a phone width. Rather than letting the
+     strip scroll horizontally (previously the case here — but that meant
+     swiping sideways to read a "page" that's otherwise vertical-only), the
+     timeline itself turns vertical: a line down the left edge with each
+     step as a row beside it, top to bottom. */
   .timeline {
     height: auto;
-    overflow-x: auto;
-    padding-bottom: 8px;
   }
 
   .line {
-    display: none;
+    left: 27px;
+    right: auto;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    height: auto;
   }
 
   .steps {
     position: static;
-    display: inline-flex;
-    gap: 40px;
-    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
   }
 }
