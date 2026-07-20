@@ -65,6 +65,15 @@ export interface AboutStickyNote {
   rotationDeg: number;
   position: CollagePosition;
   color: StickyNoteColor;
+  /**
+   * z-index alone (see StickyNote.module.css) keeps the note's text readable
+   * over a polaroid it overlaps, but "Always shipping." lands squarely over
+   * the coding-session photo at mobile's narrower collage width — reads
+   * better fully clear of the photo than sitting on top of it. Fixed px
+   * (not a % of collage height) so it stays pinned just past that
+   * polaroid's actual rendered bottom regardless of small height tweaks.
+   */
+  mobilePosition?: CollagePosition;
 }
 
 export const ABOUT_STICKY_NOTES: readonly AboutStickyNote[] = [
@@ -74,5 +83,6 @@ export const ABOUT_STICKY_NOTES: readonly AboutStickyNote[] = [
     rotationDeg: -5,
     position: { right: '2%', top: '48%' },
     color: 'green',
+    mobilePosition: { right: '2%', top: '452px' },
   },
 ];

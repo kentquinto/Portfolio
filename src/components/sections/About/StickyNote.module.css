@@ -1,5 +1,10 @@
 .note {
   position: absolute;
+  /* Higher than any polaroid (the highest is z-index:2) so a note's text
+     stays readable even where the collage's tighter mobile width makes it
+     overlap a photo — a sticky note sitting on top of a photo is the
+     normal collage look; a photo covering the note's text is not. */
+  z-index: 10;
   width: 150px;
   padding: 20px;
   font-family: var(--kq-font-accent);
