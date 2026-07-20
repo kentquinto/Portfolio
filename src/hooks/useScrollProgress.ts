@@ -1,8 +1,6 @@
 import { useMotionValue, type MotionValue } from 'framer-motion';
 import { useCallback, useEffect, useRef } from 'react';
-import { SECTIONS } from '@/data/sections';
-
-const LAST_SECTION_INDEX = SECTIONS.length - 1;
+import { LAST_SECTION_INDEX } from '@/data/sections';
 
 interface UseScrollProgressResult {
   scrollerRef: React.RefObject<HTMLDivElement | null>;
@@ -29,8 +27,11 @@ export function useScrollProgress(isMobile: boolean): UseScrollProgressResult {
       const scroller = scrollerRef.current;
       if (!scroller) return;
 
+      // clientHeight is the scroller's actual rendered height — unlike
+      // window.innerHeight, it can't drift out of sync with where sections
+      // really sit as mobile browser chrome (address bar) shows/hides.
       const raw = isMobile
-        ? scroller.scrollTop / window.innerHeight
+        ? scroller.scrollTop / scroller.clientHeight
         : scroller.scrollLeft / window.innerWidth;
       scrollProgress.set(Math.max(0, Math.min(LAST_SECTION_INDEX, raw)));
     });
@@ -70,7 +71,7 @@ export function useScrollProgress(isMobile: boolean): UseScrollProgressResult {
 
       const clampedIndex = Math.max(0, Math.min(LAST_SECTION_INDEX, index));
       if (isMobile) {
-        scroller.scrollTo({ top: clampedIndex * window.innerHeight, behavior: 'smooth' });
+        scroller.scrollTo({ top: clampedIndex * scroller.clientHeight, behavior: 'smooth' });
       } else {
         scroller.scrollTo({ left: clampedIndex * window.innerWidth, behavior: 'smooth' });
       }

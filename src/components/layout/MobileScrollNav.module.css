@@ -1,0 +1,40 @@
+.nav {
+  display: none;
+}
+
+/* Keep in sync with MOBILE_BREAKPOINT_PX in src/utils/breakpoints.ts */
+@media (max-width: 860px) {
+  .nav {
+    position: fixed;
+    z-index: 55;
+    right: 16px;
+    top: 0;
+    /* Clears the fixed bottom nav-dot bar (NavRail.module.css). */
+    bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .button {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: var(--kq-ink);
+    color: var(--kq-paper);
+    font-size: 18px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 20px -8px rgba(26, 25, 23, 0.4);
+  }
+
+  .button:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+}
