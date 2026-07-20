@@ -1,11 +1,26 @@
 # Kent Quinto — Portfolio
 
+![Portfolio preview](./docs/preview.webp)
+
 Personal portfolio site: a single-page, horizontally-scrolling story across nine sections
 (Hero, About, Skills, Projects, Process, Experience, Languages, Playground, Contact).
-
-**Live**: TBD — deploying to Vercel on a custom domain soon.
+Rather than a conventional vertical page, it plays out left to right like a story — one
+beat per section — so visitors move through it deliberately instead of skimming and bouncing.
 
 Design reference (tokens, copy, layout, motion for every section): [`docs/design-brief.md`](docs/design-brief.md).
+
+## How this was built
+
+Designed and directed by me. I structured the project for a clean, maintainable codebase and drove every design, content, and UX decision, testing the site end to end in a live browser myself. Built in close collaboration with Claude Code, which handled the TypeScript/React implementation as I continue building out that part of my stack.
+
+## Features
+
+- Horizontal, scroll-driven storytelling across 9 sections, with a full vertical fallback on mobile
+- Scroll-tied reveal animations, cursor parallax, and magnetic buttons — all driven off shared Framer Motion values instead of per-frame React state
+- A live theme switcher that recolors the whole site instantly, including a free-draw canvas that follows the active color
+- Hover-to-front project cards and photo polaroids, so overlapping content never gets stuck unreadable behind another card
+- Full keyboard navigation and `prefers-reduced-motion` support
+- Responsive down to mobile, including a dedicated pass that found and fixed real breakpoint bugs rather than just adding a media query
 
 ## Stack
 
@@ -19,15 +34,14 @@ Design reference (tokens, copy, layout, motion for every section): [`docs/design
 ```
 src/
   components/
-    layout/       Portfolio shell: ScrollContainer, ProgressBar, NavRail, TopActions, SectionShell
-    sections/      One folder per section (Hero, About, Skills, ...), each Component.tsx + Component.module.css,
-                   with that section's own subcomponents (e.g. ProjectCard, Polaroid) co-located alongside it
-  context/         One concern per file: xContext.ts (raw context) + XProvider.tsx (component) + a matching hook in src/hooks/
-  hooks/           useScrollProgress, useReveal, useMagnetic, useCardTilt, useMousePhysics, useDrawingCanvas, ...
-  data/            Section content and copy — nothing user-facing is hardcoded in JSX
-  styles/          tokens.css (design tokens as CSS custom properties) + global.css (resets, shared keyframes)
-  utils/           Pure, unit-tested logic (e.g. the scroll-reveal math), independent of React/Framer Motion
-  assets/          Optimized WebP photos and screenshots, organized by the section that uses them
+    layout/       Portfolio shell (scroll container, progress bar, nav rail, section wrapper)
+    sections/      One folder per section, each with its own subcomponents co-located
+  context/         Scroll/theme/pointer state — one file per concern, plus a matching hook
+  hooks/           Scroll progress, reveal animations, magnetic/tilt/physics interactions
+  data/            All section content and copy — nothing user-facing hardcoded in JSX
+  styles/          Design tokens (CSS custom properties) + global resets/keyframes
+  utils/           Pure, unit-tested logic, independent of React
+  assets/          Optimized WebP photos and screenshots
 ```
 
 ## Development
@@ -49,8 +63,8 @@ Deploys to [Vercel](https://vercel.com) from `main` — a Vite static build (`np
 
 This repo follows git-flow:
 
-- `main` — deployable, mirrors production (Vercel)
-- `develop` — integration branch, and the GitHub default branch
+- `main` — deployable, mirrors production (Vercel), and the GitHub default branch
+- `develop` — integration branch
 - `feature/*`, `fix/*`, `chore/*`, `content/*` — one branch per unit of work, PR'd into `develop` and squash-merged
   (`feat:`, `fix:`, `chore:`, `content:` commit prefixes respectively)
 
